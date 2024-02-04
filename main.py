@@ -40,7 +40,7 @@ def modify_files_in_zip(zip_file_path):
                     file_name.close()
             except TypeError:
                 pass
-    with zipfile.ZipFile(zip_file_path, 'w') as zip_ref:
+    with zipfile.ZipFile(zip_file_path, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zip_ref:
         for root, dirs, files in os.walk('temp_dir'):
             for file in files:
                 file_path = os.path.join(root, file)
